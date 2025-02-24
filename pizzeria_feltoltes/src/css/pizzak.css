@@ -1,0 +1,88 @@
+h1 {
+    margin-top: 40px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.pizzak {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    text-align: center;
+    margin: 50px;
+    border: grey solid 1px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px grey;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    max-width: 350px;
+}
+
+.pizzak img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.pizzak .card {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.7rem;
+}
+
+input {
+    width: 90px;
+    text-align: center;
+}
+
+.addTo {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.addTo:hover {
+    background-color: #45a049;
+}
+
+.torles {
+    padding: 10px 20px;
+    background-color: #e20000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.torles:hover {
+    background-color: #a00202;
+}
+
+.change {
+    padding: 10px 20px;
+    background-color: #ffbb00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.change:hover {
+    background-color: #e6b121;
+}
+
