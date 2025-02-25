@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../css/postpage.css';
 import apiClient from '../api/api';
 import { Pizza } from '../types/Pizza';
+import toastSuccess from '../toasts/toastSuccess';
+import toastFailed from '../toasts/toastFailed';
 
 const PostPage: React.FC = () => {
     const [nev, setNev] = useState('');
@@ -19,9 +21,9 @@ const PostPage: React.FC = () => {
 
         try {
             await apiClient.post('/pizzak', newPizza);
-            alert('Pizza sikeresen hozzáadva!');
+            toastSuccess('Pizza sikeresen hozzáadva!');
         } catch (err: any) {
-            alert('Hiba történt a pizza hozzáadása során.');
+            toastFailed('Hiba történt a pizza hozzáadása során.');
         }
     };
 
