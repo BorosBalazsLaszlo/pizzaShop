@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pizza } from '../types/Pizza';
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react-bootstrap';
+import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react-bootstrap';
 import apiClient from '../api/api';
 import '../css/pizzak.css';
 import toastSuccess from '../toasts/toastSuccess';
@@ -25,7 +25,9 @@ function Pizzak() {
 
     return (
         <div>
+            <div className='headline'>
             <h1>Pizzáink</h1>
+            </div>
             <div className="pizzak">
                 {pizzak.map((pizza) => (
                     <Card key={pizza.id} style={{ width: '18rem' }}>

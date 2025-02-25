@@ -10,11 +10,9 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    width: 1000px;
     border-radius: 20px;
     margin: 0 auto;
     box-shadow: 7px 7px 7px grey;
-    
 }
 
 
@@ -41,9 +39,9 @@
 }
 
 .nav-link:hover {
-    background-color: white;
-    color: #333;
-    border-radius: 5px;
+    background-color: maroon;
+    color: #ffffff;
+    border-radius: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
