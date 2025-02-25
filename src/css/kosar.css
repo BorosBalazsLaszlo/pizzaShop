@@ -1,0 +1,37 @@
+img {
+    width: 70px;
+    height: 70px;
+}
+
+.kosar {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    min-height: 505px;
+}
+.kosar tr {
+    box-shadow: 0px 3px 3px grey;
+}
+.kosar td {
+    width: 140px;
+    height: 100px;
+}
+
+.torles {
+    padding: 10px 20px;
+    background-color: #e20000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.torles:hover {
+    background-color: #a00202;
+}
+
+.clearAll {
+    margin-top: 30px;
+}

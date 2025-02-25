@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import PostPage from './pages/PostPage';
 import PutPage from './pages/PutPage';
 import NotFound from './pages/NotFound';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -23,6 +24,7 @@ root.render(
                 <Route path="/putpage" element={<PutPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
+            <ToastContainer />
         </BrowserRouter>
         <Footer />
     </React.StrictMode>,
