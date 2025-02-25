@@ -10,12 +10,31 @@ img {
     align-content: center;
     min-height: 505px;
 }
-.kosar tr {
-    box-shadow: 0px 3px 3px grey;
+
+.kosar table {
+    background-color: white;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
+
+.kosar tr {
+    background-color: white;
+}
+
+.kosar tr:nth-child(even) {
+    border-left: 5px solid orange;
+    border-radius: 30px;
+}
+
+.kosar tr:nth-child(odd) {
+    border-left: 5px solid maroon;
+    border-radius: 30px;
+}
+
 .kosar td {
     width: 140px;
     height: 100px;
+    border-bottom: 1px solid rgb(227, 227, 227);
 }
 
 .torles {
@@ -33,5 +52,5 @@ img {
 }
 
 .clearAll {
-    margin-top: 30px;
+    margin: 10px;
 }
