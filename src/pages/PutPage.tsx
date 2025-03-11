@@ -63,6 +63,7 @@ function PutPage() {
                             <CardTitle className="card-title">{pizza.nev}</CardTitle>
                             <CardSubtitle className="mb-2 text-muted">
                                 <input
+                                 className='priceChange'
                                     type="number"
                                     value={pizza.ar}
                                     onChange={(e) =>

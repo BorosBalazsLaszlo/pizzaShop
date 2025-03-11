@@ -1,0 +1,57 @@
+.main-put {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 230px;
+    padding: 20px;
+    background-color: #f3f3f3e5;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.floating{
+    margin-right: 300px;
+    margin-bottom: 300px;
+    height: 600px;
+    width: 600px;
+}
+
+.main-put h4 {
+    vertical-align: middle;
+    color: black;
+    text-align: center;
+}
+
+.main-put > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-put input[type="text"], input[type="number"], textarea {
+    align-self: center;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.main-put button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.main-put button:hover {
+    background-color: #45a049;
+}

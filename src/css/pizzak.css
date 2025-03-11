@@ -57,7 +57,7 @@ html {
     transform: translateY(-20px);
 }
 
-.card-subtitle{
+.card-subtitle {
     margin-top: 10px;
     font-size: 20px;
 }
@@ -77,7 +77,7 @@ html {
     font-size: 1.7rem;
 }
 
-input {
+.priceChange {
     width: 90px;
     text-align: center;
 }
@@ -89,7 +89,7 @@ input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;;
+    font-size: 16px;
     position: initial;
     bottom: 0px;
 }

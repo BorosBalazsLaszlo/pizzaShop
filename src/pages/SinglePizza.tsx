@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useSyncExternalStore } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Pizza } from '../types/Pizza';
 import apiClient from '../api/api';
 import toastFailed from '../toasts/toastFailed';
+import toastSuccess from '../toasts/toastSuccess';
+import '../css/singlepizza.css'
 
 function SinglePizza() {
     const { id } = useParams();
-    const navigate = useNavigate();
 
     const [pizza, setPizza] = useState<Pizza | null>(null);
 
@@ -36,13 +37,53 @@ function SinglePizza() {
         fetchPizza();
     }, [id]);
 
+    const updatePizza = async () =>{
+        try{
+            const updatedPizza ={
+                ar: ar,
+                imageUrl: imageUrl,
+                leiras: leiras,
+                nev: nev,
+            } as Pizza;
+
+            const response = await apiClient.put(`/pizzak/${id}`, updatedPizza);
+            toastSuccess("Sikeres frissítés!");
+        } catch (err:any)
+        {
+            toastFailed("Sikertelen frissítés!");
+        }
+    };
+ 
     return (
         <div>
-            <h1>{pizza?.nev}</h1>
+            <h1>Név{pizza?.nev}</h1>
 
-            <p>{pizza?.ar}</p>
-            <p>{pizza?.leiras}</p>
-            <img alt={pizza?.nev} src={`http://localhost:8001/api/kepek/${pizza?.imageUrl}`} />
+            <p>Ár{pizza?.ar}</p>
+            <p>Leírás: sdasdasdasdasdadasdasdasdasdasdsadsad{pizza?.leiras}</p>
+
+            <img className='floating' alt={pizza?.nev} src={`https://placehold.co/600x400`} />
+        
+
+            <div className='main-put'>
+                <h4>Adatok frissítése</h4>
+                <form action="submit">
+                <input type="text" placeholder='Név' onChange={(e) => setNev(e.target.value)}/>
+                <div>
+                <input type="number" placeholder='Ár (Ft)' onChange={(e) => setAr(Number(e.target.value))}/>
+                </div>
+                <input type="text" placeholder='Kép url' onChange={(e) => setImageUrl(e.target.value)}/>
+                <div className="leiras">
+                    <textarea
+                        placeholder="Leírás"
+                        onChange={(e) => setLeiras(e.target.value)}
+                    />
+                </div>
+                </form>
+
+                <button type='submit' onClick={updatePizza}>
+                    Frissítés
+                </button>
+            </div>
         </div>
     );
 }
