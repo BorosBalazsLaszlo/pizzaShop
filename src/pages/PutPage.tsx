@@ -72,11 +72,11 @@ function PutPage() {
                             </CardSubtitle>
                             <CardText>{pizza.leiras}</CardText>
                             <button className='change' onClick={() => updateAr(pizza.id, pizza.ar)}>
-                                Változtatás!
+                                Változtatás
                             </button>
                             <br />
                             <br />
-                            <button className='torles' onClick={() => deletePizza(pizza.id)}>Törlés!</button>
+                            <button className='torles' onClick={() => deletePizza(pizza.id)}>Törlés</button>
                         </CardBody>
                     </Card>
                 ))}

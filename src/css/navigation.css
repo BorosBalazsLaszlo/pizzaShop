@@ -56,6 +56,17 @@
     animation-delay: 0.5s;
 }
 
+.logout{
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.logout:hover{
+    background-color: maroon;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

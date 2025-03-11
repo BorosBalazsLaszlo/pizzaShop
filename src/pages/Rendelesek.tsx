@@ -1,18 +1,54 @@
-import React from "react";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import React, { useEffect, useState } from 'react';
+import { Rendeles } from '../types/Rendeles';
+import apiClient from '../api/api';
+import toastFailed from '../toasts/toastFailed';
+import { useNavigate } from 'react-router-dom';
 
 function Rendelesek() {
+    const [rendelesek, setRendelesek] = useState<Rendeles[]>([]);
+    const [token, setToken] = useState('');
+    const navigate = useNavigate();
 
-    return(
+    useEffect(() => {
+        const storedToken = sessionStorage.getItem('BasicAut') || '';
+        setToken(storedToken);
+
+        if (storedToken === '') {
+            toastFailed('Nincs jogosultsága.');
+            setTimeout(() => {
+                navigate('/login');
+            }, 5000);
+        } else {
+            const fetchOrder = async () => {
+                try {
+                    const response = await apiClient.get('/rendelesek', {
+                        headers: {
+                            Authorization: `Basic ${storedToken}`,
+                        },
+                    });
+                    setRendelesek(response.data);
+                } catch (err: any) {
+                    toastFailed('Hiba a fetchelésnél.');
+                }
+            };
+            fetchOrder();
+        }
+    }, [navigate, token]);
+
+    return (
         <div>
-            <Navigation/>
+            <h1>Rendelések</h1>
 
-            <h1>Rendelés</h1>
-
-            <Footer/>
+            <div>
+                {rendelesek.map((rendeles) => (
+                    <div>
+                        <p>PizzaId: {rendeles.pizzaId}</p>
+                        <p>Pizza mennyiség: {rendeles.mennyiseg}</p>
+                    </div>
+                ))}
+            </div>
         </div>
-    )
+    );
 }
 
 export default Rendelesek;
