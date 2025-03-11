@@ -1,8 +1,8 @@
 .navigation-container {
-    position:sticky;
-    left:0;
-    top:0;
-    right:0;
+    position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
     color: rgb(255, 255, 255);
     background-color: #ff971d;
     padding: 10px 20px;
@@ -14,7 +14,6 @@
     margin: 0 auto;
     box-shadow: 7px 7px 7px grey;
 }
-
 
 .navigation-nav {
     display: flex;
@@ -56,14 +55,14 @@
     animation-delay: 0.5s;
 }
 
-.logout{
+.logout {
     background-color: transparent;
     border: none;
     font-size: 30px;
     cursor: pointer;
 }
 
-.logout:hover{
+.logout:hover {
     background-color: maroon;
 }
 
