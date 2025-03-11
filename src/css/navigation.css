@@ -1,3 +1,4 @@
+
 .navigation-container {
     position: sticky;
     left: 0;
@@ -13,7 +14,9 @@
     border-radius: 20px;
     margin: 0 auto;
     box-shadow: 7px 7px 7px grey;
+    z-index: 1000;
 }
+
 
 .navigation-nav {
     display: flex;

@@ -66,6 +66,7 @@ textarea {
     height: 600px;
     top: 10%;
     left: 40%;
+    z-index: 1;
     animation: spin 30s infinite linear;
 }
 

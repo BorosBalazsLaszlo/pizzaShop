@@ -50,6 +50,7 @@ html {
     border-top: maroon 10px solid;
     border-bottom: maroon 10px solid;
     transition: 0.7s;
+    z-index: 1;
 }
 
 .card:hover {
