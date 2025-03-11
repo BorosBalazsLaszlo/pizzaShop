@@ -2,14 +2,16 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 230px;
+    max-width: 280px;
     padding: 20px;
     background-color: #f3f3f3e5;
     border-radius: 10px;
     padding: 30px;
+    margin-left: 140px;
+    box-shadow: 2px 2px 2px maroon;
 }
 
-.floating{
+.floating {
     margin-right: 300px;
     margin-bottom: 300px;
     height: 600px;
@@ -17,9 +19,9 @@
 }
 
 .main-put h4 {
-    vertical-align: middle;
+    font-size: 20px;
     color: black;
-    text-align: center;
+    text-align: left;
 }
 
 .main-put > div {
@@ -27,7 +29,9 @@
     flex-direction: column;
 }
 
-.main-put input[type="text"], input[type="number"], textarea {
+.main-put input[type='text'],
+input[type='number'],
+textarea {
     align-self: center;
     width: 200px;
     padding: 10px;
@@ -44,7 +48,7 @@ textarea {
 
 .main-put button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -54,4 +58,47 @@ textarea {
 
 .main-put button:hover {
     background-color: #45a049;
+}
+
+.floating {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 10%;
+    left: 40%;
+    animation: spin 30s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.information {
+    display: inline-block;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 280px;
+    padding: 20px;
+    background-color: #f3f3f3e5;
+    border-radius: 10px;
+    padding: 30px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    margin-left: 140px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 2px 2px 2px maroon;
+}
+
+.information h2 {
+    font-size: 25px;
+}
+
+.information p {
+    font-size: 17px;
 }
