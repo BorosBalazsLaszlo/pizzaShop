@@ -21,8 +21,8 @@ root.render(
         <Navigation />
         <BrowserRouter>
             <Routes>
-                <Route path="/pizzak" element={<Pizzak />} />
-                <Route path="/pizzak/:id" element={<SinglePizza />} />
+                <Route path="/" element={<Pizzak />} />
+                <Route path="/:id" element={<SinglePizza />} />
                 <Route path="/rendelesek" element={<Rendelesek />} />
                 <Route path="/kosar" element={<Kosar />} />
                 <Route path="/postpage" element={<PostPage />} />

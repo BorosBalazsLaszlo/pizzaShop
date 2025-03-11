@@ -5,8 +5,12 @@ import apiClient from '../api/api';
 import '../css/pizzak.css';
 import toastSuccess from '../toasts/toastSuccess';
 import toastFailed from '../toasts/toastFailed';
+import { useNavigate } from 'react-router-dom';
 
 function Pizzak() {
+
+    const navigate = useNavigate();
+
     const [pizzak, setPizzak] = useState<Pizza[]>([]);
 
     const kosar: Array<Pizza> = [];
@@ -22,6 +26,10 @@ function Pizzak() {
         };
         fetchPizzak();
     }, []);
+
+    const handleView = (id: number) =>{
+        navigate(`/${id}`)
+    }
 
     return (
         <div>
@@ -47,6 +55,9 @@ function Pizzak() {
                                 }}
                             >
                                 Megrendelés
+                            </button>
+                            <button className='view' onClick={() => handleView(pizza.id)}>
+                               Megtekintés 
                             </button>
                         </CardBody>
                     </Card>

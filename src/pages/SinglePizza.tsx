@@ -38,9 +38,8 @@ function SinglePizza() {
 
     return (
         <div>
-            <h1>Szigma pédzs</h1>
+            <h1>{pizza?.nev}</h1>
 
-            <p>{pizza?.nev}</p>
             <p>{pizza?.ar}</p>
             <p>{pizza?.leiras}</p>
             <img alt={pizza?.nev} src={`http://localhost:8001/api/kepek/${pizza?.imageUrl}`} />

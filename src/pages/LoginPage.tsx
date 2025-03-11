@@ -2,13 +2,13 @@ import { useState } from 'react';
 import '../css/login.css';
 import toastFailed from '../toasts/toastFailed';
 import apiClient from '../api/api';
-import { toast } from 'react-toastify';
 import toastSuccess from '../toasts/toastSuccess';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [username, SetUsername] = useState('');
     const [password, SetPassword] = useState('');
-    const [checklogin, SetCheckLogin] = useState(false);
 
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -19,14 +19,15 @@ const Login = () => {
             };
 
             const response = await apiClient.post('/login', user);
-            toastSuccess('Sikeres bejelentkezés!');
 
-            const token = btoa(`${username}:${password}`);
-            sessionStorage.setItem('BasicAut', token);
-            SetCheckLogin(true);
-
+            if (response.status === 200) {
+                toastSuccess('Sikeres bejelentkezés!');
+                const token = btoa(`${username}:${password}`);
+                sessionStorage.setItem('BasicAut', token);
+                navigate("/");
+            }
         } catch (err: any) {
-            toastFailed('Sikertelen bejelentkezés!');
+            toastFailed('Nincs ilyen felhasználó!');
         }
     };
 

@@ -3,6 +3,7 @@ import { Rendeles } from '../types/Rendeles';
 import apiClient from '../api/api';
 import toastFailed from '../toasts/toastFailed';
 import { useNavigate } from 'react-router-dom';
+import '../css/rendelesek.css'; // Import the CSS file
 
 function Rendelesek() {
     const [rendelesek, setRendelesek] = useState<Rendeles[]>([]);
@@ -17,7 +18,7 @@ function Rendelesek() {
             toastFailed('Nincs jogosultsága.');
             setTimeout(() => {
                 navigate('/login');
-            }, 5000);
+            }, 900);
         } else {
             const fetchOrder = async () => {
                 try {
@@ -39,9 +40,9 @@ function Rendelesek() {
         <div>
             <h1>Rendelések</h1>
 
-            <div>
+            <div className="orders">
                 {rendelesek.map((rendeles) => (
-                    <div>
+                    <div key={rendeles.pizzaId}>
                         <p>PizzaId: {rendeles.pizzaId}</p>
                         <p>Pizza mennyiség: {rendeles.mennyiseg}</p>
                     </div>

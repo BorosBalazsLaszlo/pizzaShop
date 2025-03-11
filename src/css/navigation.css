@@ -7,7 +7,7 @@
     background-color: #ff971d;
     padding: 10px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 60px;
     border-radius: 20px;
@@ -19,9 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
+    width: 100%;
 }
 
 .nav-link {
@@ -48,22 +46,28 @@
     color: #ffffff;
     font-size: 50px;
     font-weight: bold;
-    margin: 0 20px;
     opacity: 0;
     transform: translateX(-50px);
     animation: slideIn 0.7s ease-out forwards;
     animation-delay: 0.5s;
+    text-align: center;
 }
 
 .logout {
+    margin-top: 10px;
+    padding-top: 5px;
     background-color: transparent;
     border: none;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
+    color: white;
 }
 
 .logout:hover {
     background-color: maroon;
+    color: #ffffff;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @keyframes fadeIn {
