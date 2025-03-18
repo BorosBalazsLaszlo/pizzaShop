@@ -26,6 +26,7 @@ function Navigation() {
                             Rendelések
                         </Nav.Link>
                     </Nav.Item>
+                    
                 ) : (
                     <>
                         <Nav.Item>
@@ -52,6 +53,19 @@ function Navigation() {
                     </Nav.Item>
                 ) : (
                     <>
+                        <Nav.Item>
+                            <Nav.Link href="/" className="nav-link">
+                                Pizzák
+                            </Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/kosar" eventKey="link-1" className="nav-link">
+                                Kosár
+                            </Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <p className="brand-name">Geri Pizzéria</p>
+                        </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="/postpage" className="nav-link">
                                 Hozzáadás

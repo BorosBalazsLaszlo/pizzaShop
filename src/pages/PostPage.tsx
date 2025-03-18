@@ -4,8 +4,11 @@ import apiClient from '../api/api';
 import { Pizza } from '../types/Pizza';
 import toastSuccess from '../toasts/toastSuccess';
 import toastFailed from '../toasts/toastFailed';
+import { useNavigate } from 'react-router-dom';
 
 const PostPage: React.FC = () => {
+    
+    const navigate = useNavigate();
     const [nev, setNev] = useState('');
     const [ar, setAr] = useState(0);
     const [leiras, setLeiras] = useState('');
@@ -22,6 +25,7 @@ const PostPage: React.FC = () => {
         try {
             await apiClient.post('/pizzak', newPizza);
             toastSuccess('Pizza sikeresen hozzáadva!');
+            navigate("/");
         } catch (err: any) {
             toastFailed('Hiba történt a pizza hozzáadása során.');
         }

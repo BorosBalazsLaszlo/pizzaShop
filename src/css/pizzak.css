@@ -126,3 +126,20 @@ html {
 .change:hover {
     background-color: #e6b121;
 }
+
+.view {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(34, 170, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: initial;
+    bottom: 0px;
+}
+
+.view:hover {
+    background-color: rgb(31, 160, 240);
+}

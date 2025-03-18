@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Pizza } from '../types/Pizza';
 import apiClient from '../api/api';
 import toastFailed from '../toasts/toastFailed';
@@ -7,19 +7,15 @@ import toastSuccess from '../toasts/toastSuccess';
 import '../css/singlepizza.css';
 
 function SinglePizza() {
+    const navigate = useNavigate();
     const { id } = useParams();
-
     const [pizza, setPizza] = useState<Pizza | null>(null);
-
     const [ar, setAr] = useState(0);
     const [imageUrl, setImageUrl] = useState('');
     const [leiras, setLeiras] = useState('');
     const [nev, setNev] = useState('');
 
-    // ar: number,
-    // imageUrl: string,
-    // leiras: string,
-    // nev: string,
+    const storedToken = sessionStorage.getItem('BasicAut') || undefined;
 
     useEffect(() => {
         const fetchPizza = async () => {
@@ -37,7 +33,8 @@ function SinglePizza() {
         fetchPizza();
     }, [id]);
 
-    const updatePizza = async () => {
+    const updatePizza = async (e: React.FormEvent) => {
+        e.preventDefault();
         try {
             const updatedPizza = {
                 ar: ar,
@@ -53,43 +50,67 @@ function SinglePizza() {
         }
     };
 
+    const deletePizza = async (id: number) => {
+        try {
+            await apiClient.delete(`/pizzak/${id}`);
+            toastSuccess('Pizza sikeresen törölve!');
+            navigate("/");
+        } catch (err: any) {
+            toastFailed('Hiba történt a pizza törlésekor.');
+        }
+    };
+
     return (
-        <div>
-            <div className="information">
-                <h2>Név{pizza?.nev}</h2>
-                <p>Ár{pizza?.ar}</p>
-                <p>Leírás: sdasdasdasdasdadasdasdasdasdasdsadsad{pizza?.leiras}</p>
-            </div>
-            <img className="floating" alt={pizza?.nev} src={`https://placehold.co/600x400`} />
-
-            <div className="main-put">
-                <h4>Adatok frissítése</h4>
-                <form action="submit">
-                    <input type="text" placeholder="Név" onChange={(e) => setNev(e.target.value)} />
-                    <div>
+        <div className="single-put">
+            {!storedToken ? (
+                <div className="information">
+                    <h2>{pizza?.nev}</h2>
+                    <p>{pizza?.ar}</p>
+                    <p>{pizza?.leiras}</p>
+                </div>
+            ) : (
+                <div className="main-put">
+                    <h4>Adatok frissítése</h4>
+                    <form onSubmit={updatePizza}>
                         <input
-                            type="number"
-                            placeholder="Ár (Ft)"
-                            onChange={(e) => setAr(Number(e.target.value))}
+                            type="text"
+                            placeholder="Név"
+                            value={nev}
+                            onChange={(e) => setNev(e.target.value)}
                         />
-                    </div>
-                    <input
-                        type="text"
-                        placeholder="Kép url"
-                        onChange={(e) => setImageUrl(e.target.value)}
-                    />
-                    <div className="leiras">
-                        <textarea
-                            placeholder="Leírás"
-                            onChange={(e) => setLeiras(e.target.value)}
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="Ár (Ft)"
+                                value={ar}
+                                onChange={(e) => setAr(Number(e.target.value))}
+                            />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Kép url"
+                            value={imageUrl}
+                            onChange={(e) => setImageUrl(e.target.value)}
                         />
-                    </div>
-                </form>
-
-                <button type="submit" onClick={updatePizza}>
-                    Frissítés
-                </button>
-            </div>
+                        <div className="leiras">
+                            <textarea
+                                placeholder="Leírás"
+                                value={leiras}
+                                onChange={(e) => setLeiras(e.target.value)}
+                            />
+                        </div>
+                        <button className='frissites' type="submit">Frissítés</button>
+                    </form>
+                    <button className='torles' onClick={() => deletePizza(Number(pizza?.id))}>Törlés</button>
+                </div>
+            )}
+            {pizza?.imageUrl && (
+                <img
+                    className="floating"
+                    alt={pizza?.nev}
+                    src={`http://localhost:8001/api/kepek/${pizza?.imageUrl}`}
+                />
+            )}
         </div>
     );
 }

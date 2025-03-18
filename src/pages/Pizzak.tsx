@@ -56,6 +56,7 @@ function Pizzak() {
                             >
                                 Megrendelés
                             </button>
+                            <br/>
                             <button className='view' onClick={() => handleView(pizza.id)}>
                                Megtekintés 
                             </button>
