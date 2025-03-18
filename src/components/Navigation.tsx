@@ -4,14 +4,18 @@ import '../css/navigation.css';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import toastSuccess from '../toasts/toastSuccess';
 import toastFailed from '../toasts/toastFailed';
+import { useNavigate } from 'react-router-dom';
 
 function Navigation() {
+
+    const navigate = useNavigate();
     const storedToken = sessionStorage.getItem('BasicAut') || undefined;
 
     const handleLogout = () => {
         if (!storedToken) {
             toastFailed('Már nincs bejelentkezve!');
         } else {
+            navigate("/");
             sessionStorage.clear();
             toastSuccess('Sikeres kijelentkezés!');
         }

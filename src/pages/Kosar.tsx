@@ -69,7 +69,7 @@ function Kosar() {
                                 ))}
                             </tbody>
                             <div className="clearAll">
-                                <button className="torles" onClick={deleteBasket}>
+                                <button className="torles2" onClick={deleteBasket}>
                                     Kosár törlése
                                 </button>
                             </div>

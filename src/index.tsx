@@ -18,8 +18,8 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <Navigation />
         <BrowserRouter>
+        <Navigation />
             <Routes>
                 <Route path="/" element={<Pizzak />} />
                 <Route path="/:id" element={<SinglePizza />} />

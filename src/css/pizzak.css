@@ -5,6 +5,10 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body{
+    width: 98vw;
+}
+
 .headline h1 {
     vertical-align: middle;
     color: white;
@@ -111,6 +115,20 @@ html {
 
 .torles:hover {
     background-color: #a00202;
+}
+
+.torles2 {
+    padding: 10px 20px;
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.torles2:hover {
+    background-color: #ed6701;
 }
 
 .change {
