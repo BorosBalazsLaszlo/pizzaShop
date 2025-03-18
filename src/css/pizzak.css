@@ -1,7 +1,7 @@
 html {
     margin: 0;
     padding: 0;
-    background-color: #fefef4;
+    background-color: #f9f6f7;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -128,7 +128,7 @@ body{
 }
 
 .torles2:hover {
-    background-color: #ed6701;
+    background-color: #ff6f00;
 }
 
 .change {
