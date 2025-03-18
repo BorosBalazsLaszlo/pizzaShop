@@ -5,21 +5,35 @@ import apiClient from '../api/api';
 import '../css/pizzak.css';
 import toastSuccess from '../toasts/toastSuccess';
 import toastFailed from '../toasts/toastFailed';
+import { useNavigate } from 'react-router-dom';
 
 function PutPage() {
+    const navigate = useNavigate();
     const [pizzak, setPizzak] = useState<Pizza[]>([]);
 
+    const [token, setToken] = useState('');
+
     useEffect(() => {
-        const fetchPizzak = async () => {
-            try {
-                const response = await apiClient.get('/pizzak');
-                setPizzak(response.data);
-            } catch (err: any) {
-                alert(err);
-            }
-        };
-        fetchPizzak();
-    }, []);
+        const storedToken = sessionStorage.getItem('BasicAut') || '';
+        setToken(storedToken);
+
+        if (storedToken === '') {
+            toastFailed('Nincs jogosultsága.');
+            setTimeout(() => {
+                navigate('/login');
+            }, 500);
+        } else {
+            const fetchPizzak = async () => {
+                try {
+                    const response = await apiClient.get('/pizzak');
+                    setPizzak(response.data);
+                } catch (err: any) {
+                    alert(err);
+                }
+            };
+            fetchPizzak();
+        }
+    }, [navigate, token]);
 
     const updateAr = async (id: number, newPrice: number) => {
         const updatedPizza = {
@@ -52,7 +66,6 @@ function PutPage() {
         <div>
             <h1>Változtasd meg!</h1>
             <div className="pizzak">
-
                 {pizzak.map((pizza) => (
                     <Card key={pizza.id} style={{ width: '18rem' }}>
                         <img
@@ -63,7 +76,7 @@ function PutPage() {
                             <CardTitle className="card-title">{pizza.nev}</CardTitle>
                             <CardSubtitle className="mb-2 text-muted">
                                 <input
-                                 className='priceChange'
+                                    className="priceChange"
                                     type="number"
                                     value={pizza.ar}
                                     onChange={(e) =>
@@ -72,12 +85,14 @@ function PutPage() {
                                 />
                             </CardSubtitle>
                             <CardText>{pizza.leiras}</CardText>
-                            <button className='change' onClick={() => updateAr(pizza.id, pizza.ar)}>
+                            <button className="change" onClick={() => updateAr(pizza.id, pizza.ar)}>
                                 Változtatás
                             </button>
                             <br />
                             <br />
-                            <button className='torles' onClick={() => deletePizza(pizza.id)}>Törlés</button>
+                            <button className="torles" onClick={() => deletePizza(pizza.id)}>
+                                Törlés
+                            </button>
                         </CardBody>
                     </Card>
                 ))}

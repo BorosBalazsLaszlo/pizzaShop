@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/postpage.css';
 import apiClient from '../api/api';
 import { Pizza } from '../types/Pizza';
@@ -13,6 +13,20 @@ const PostPage: React.FC = () => {
     const [ar, setAr] = useState(0);
     const [leiras, setLeiras] = useState('');
     const [image, setImage] = useState('');
+
+    const [token, setToken] = useState('');
+
+    useEffect(() => {
+        const storedToken = sessionStorage.getItem('BasicAut') || '';
+        setToken(storedToken);
+
+        if (storedToken === '') {
+            toastFailed('Nincs jogosultsága.');
+            setTimeout(() => {
+                navigate('/login');
+            });
+        }
+    }, [navigate, token])
 
     const handleSubmit = async () => {
         const newPizza = {
