@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-        <Navigation />
+            <Navigation />
             <Routes>
                 <Route path="/" element={<Pizzak />} />
                 <Route path="/:id" element={<SinglePizza />} />
@@ -27,7 +27,7 @@ root.render(
                 <Route path="/kosar" element={<Kosar />} />
                 <Route path="/postpage" element={<PostPage />} />
                 <Route path="/putpage" element={<PutPage />} />
-                <Route path="/login" element={<LoginPage/>} />
+                <Route path="/login" element={<LoginPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             <ToastContainer />

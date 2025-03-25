@@ -40,7 +40,7 @@ function Rendelesek() {
         <div>
             <h1>Rendelések</h1>
 
-            <div className="orders">
+            <div data-testid="order-page" className="orders">
                 {rendelesek.map((rendeles) => (
                     <div key={rendeles.pizzaId}>
                         <p>PizzaId: {rendeles.pizzaId}</p>
