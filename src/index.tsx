@@ -18,23 +18,24 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+      <BrowserRouter>
         <Navigation />
-            <Routes>
-                <Route path="/" element={<Pizzak />} />
-                <Route path="/:id" element={<SinglePizza />} />
-                <Route path="/rendelesek" element={<Rendelesek />} />
-                <Route path="/kosar" element={<Kosar />} />
-                <Route path="/postpage" element={<PostPage />} />
-                <Route path="/putpage" element={<PutPage />} />
-                <Route path="/login" element={<LoginPage/>} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-            <ToastContainer />
-        </BrowserRouter>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Pizzak />} />
+          <Route path="/:id" element={<SinglePizza />} />
+          <Route path="/rendelesek" element={<Rendelesek />} />
+          <Route path="/kosar" element={<Kosar />} />
+          <Route path="/postpage" element={<PostPage />} />
+          <Route path="/putpage" element={<PutPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <ToastContainer />
+        <Footer /> 
+      </BrowserRouter>
     </React.StrictMode>,
-);
+  );
+  
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

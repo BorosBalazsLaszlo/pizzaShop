@@ -61,7 +61,7 @@ function SinglePizza() {
     };
 
     return (
-        <div className="single-put">
+        <div data-testid="put-page" className="single-put">
             {!storedToken ? (
                 <div className="information">
                     <h2>{pizza?.nev}</h2>
@@ -69,7 +69,7 @@ function SinglePizza() {
                     <p>{pizza?.leiras}</p>
                 </div>
             ) : (
-                <div className="main-put">
+                <div data-testid="put-page" className="main-put">
                     <h4>Adatok frissítése</h4>
                     <form onSubmit={updatePizza}>
                         <input
