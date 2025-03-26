@@ -32,10 +32,10 @@ function Pizzak() {
 
     return (
         <div>
-            <div className="headline">
+            <div data-testid="headline" className="headline">
                 <h1>Pizzáink</h1>
             </div>
-            <div data-testid="mainpage" className="pizzak">
+            <div data-testid="pizzak-mainpage" className="pizzak">
                 {pizzak.map((pizza) => (
                     <Card key={pizza.id} style={{ width: '18rem' }}>
                         <img

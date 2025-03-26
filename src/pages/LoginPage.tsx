@@ -34,7 +34,7 @@ const Login = () => {
     return (
         <div className="form-container">
             <form className="form" onSubmit={handleLogin}>
-                <h2>Bejelentkezés</h2>
+                <h2 data-testid="bejelentkezes" >Bejelentkezés</h2>
                 <div>
                     <input
                         type="text"
